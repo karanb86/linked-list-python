@@ -161,3 +161,19 @@ if __name__ == '__main__':
     myList.deleteBefore(1)
     myList.displayList()
 ```
+### Output:
+
+```
+None
+1 -> None
+1 -> 2 -> None
+3 -> 1 -> 2 -> None
+4 -> 3 -> 1 -> 2 -> None
+5 -> 4 -> 3 -> 1 -> 2 -> None
+5 -> 4 -> 3 -> 1 -> 2 -> 6 -> None
+5 -> 4 -> 3 -> 1 -> 2 -> 6 -> 7 -> None
+Node at position 4 is 1
+5 -> 4 -> 3 -> 1 -> 2 -> 6 -> None
+5 -> 4 -> 3 -> 1 -> 6 -> None
+5 -> 4 -> 1 -> 6 -> None
+```
