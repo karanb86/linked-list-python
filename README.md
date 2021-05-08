@@ -105,6 +105,8 @@ class LinkedList:
         h = self.head
         if h is Node:
             print('Empty List, cannot delete')
+        elif h.data == key:
+            print('No element found before {}'.format(key))
         else:
             jumps = 0
             previousNode = 0
