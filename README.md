@@ -1,4 +1,11 @@
-# Documenting my first ever code on linked list insertion and deletion operations using Python
+# Documenting my first ever code on linked list operations using Python
+
+## Operations included:
+1. Insertion: at start, at end, after a key
+2. Deletion: at end, at start, before a key, after a key
+3. Get Nth node data from start
+4. Get Nth node data from end
+5. Display list
 
 
 ```
@@ -125,6 +132,33 @@ class LinkedList:
                     previousNode = p
                     p = p.next
                     previousNode.next = p.next
+                    
+    def getMiddleNodeData(self):
+        fast = self.head
+        slow = self.head
+        if slow is None:
+            print('Empty list')
+        else:
+            while(fast != None and fast.next != None):
+                slow = slow.next
+                fast = fast.next.next
+            print('Middle element: {}'.format(slow.data))
+            
+    def getNthNodeFromEnd(self, n):
+        if (n == 0):
+            print('Enter a valid position')
+            return
+        h = self.head
+        prev = self.head
+        for i in range(n):
+            if (h is None):
+                print('List has not enough elements')
+                return
+            h = h.next
+        while h != None:
+            h = h.next
+            prev = prev.next
+        print('Data at positon {} from end: {}'.format(n, prev.data))
 
 
 if __name__ == '__main__':
@@ -162,6 +196,9 @@ if __name__ == '__main__':
     
     myList.deleteBefore(1)
     myList.displayList()
+    
+    myList.getMiddleNodeData()
+    myList.getNthNodeFromEnd(0)
 ```
 ### Output:
 
@@ -178,4 +215,6 @@ Node at position 4 is 1
 5 -> 4 -> 3 -> 1 -> 2 -> 6 -> None
 5 -> 4 -> 3 -> 1 -> 6 -> None
 5 -> 4 -> 1 -> 6 -> None
+Middle element: 1
+Enter a valid position
 ```
