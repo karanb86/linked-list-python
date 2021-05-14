@@ -6,6 +6,7 @@
 3. Get Nth node data from start
 4. Get Nth node data from end
 5. Display list
+6. Check for loops in list
 
 
 ```
@@ -159,6 +160,25 @@ class LinkedList:
             h = h.next
             prev = prev.next
         print('Data at positon {} from end: {}'.format(n, prev.data))
+        
+    def createLoop(self):
+        h = self.head
+        prev = ''
+        while(h.next != None):
+            prev = h
+            h =  h.next
+        h.next = prev.next
+    
+    def checkForLoops(self):
+        h = self.head
+        dic = {}
+        while(h not in dic and h is not None):
+            dic[h] = 1
+            h = h.next
+        if (h is None):
+            print('No Loop')
+        else:
+            print('Has Loop')
 
 
 if __name__ == '__main__':
@@ -199,6 +219,10 @@ if __name__ == '__main__':
     
     myList.getMiddleNodeData()
     myList.getNthNodeFromEnd(0)
+    
+    myList.checkForLoops()    
+    myList.createLoop()
+    myList.checkForLoops()
 ```
 ### Output:
 
@@ -217,4 +241,6 @@ Node at position 4 is 1
 5 -> 4 -> 1 -> 6 -> None
 Middle element: 1
 Enter a valid position
+No Loop
+Has Loop
 ```
